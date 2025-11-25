@@ -29,8 +29,8 @@ jobs:
         run: uv sync --dev
       # Check that basic features work and we didn't miss to include crucial files
       - name: Smoke test (wheel)
-        run: uv run --isolated --no-project --with dist/*.whl pytest tests/test_smoke.py
+        run: uv run --isolated --no-project --with dist/*.whl tests/test_smoke.py
       - name: Smoke test (source distribution)
-        run: uv run --isolated --no-project --with dist/*.tar.gz pytest tests/test_smoke.py
+        run: uv run --isolated --no-project --with dist/*.tar.gz tests/test_smoke.py
       - name: Publish
         run: uv publish

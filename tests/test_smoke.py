@@ -16,3 +16,9 @@ def test_mermaid_component():
     B ---->|No| E[End]
     """
     mermaid(mermaid_code, theme="neutral", key="flowchart")
+
+
+if __name__ == "__main__":
+    test_import()
+    test_mermaid_component()
+    print("All tests passed")
