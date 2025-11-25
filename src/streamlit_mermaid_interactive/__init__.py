@@ -22,14 +22,6 @@ def _mermaid_component():
             width: 100%;
             height: 100%;
         }
-        .er.entityBox {
-            cursor: pointer;
-        }
-        .er.entityBox:hover rect {
-            fill: #e3f2fd !important;
-            stroke: #2196f3 !important;
-            stroke-width: 2px !important;
-        }
         """,
         js="""
         export default function(component) {
@@ -39,7 +31,7 @@ def _mermaid_component():
             // Check if Mermaid is already loaded
             if (typeof window.mermaid === 'undefined') {
                 const script = document.createElement('script');
-                script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+                script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
                 script.onload = () => initializeDiagram();
                 document.head.appendChild(script);
             } else {
