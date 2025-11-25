@@ -22,7 +22,17 @@ graph TD
     D --> B
     B ---->|No| E[End]
 """
-        entities = mermaid(flowchart_code, theme="neutral", key="flowchart")
+
+        def on_click():
+            item_clicked = st.session_state["flowchart"]["clicked"]
+            st.toast(f"Clicked: {item_clicked}")
+
+        entities = mermaid(
+            flowchart_code,
+            theme="neutral",
+            key="flowchart",
+            on_click=on_click,
+        )
         if clicked := entities.get("entity_clicked"):
             st.info(f"Flowchart - Clicked: {clicked}")
         else:

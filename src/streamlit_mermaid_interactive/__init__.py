@@ -1,4 +1,5 @@
 import hashlib
+from typing import Callable
 
 import streamlit as st
 
@@ -25,7 +26,7 @@ def _mermaid_component():
         """,
         js="""
         export default function(component) {
-            const { data, setStateValue, parentElement } = component;
+            const { data, setStateValue, setTriggerValue, parentElement } = component;
             const container = parentElement.querySelector('#mermaid-container');
 
             // Check if Mermaid is already loaded
@@ -47,7 +48,8 @@ def _mermaid_component():
                     container.innerHTML = svg;
 
                     setTimeout(() => {
-                        setStateValue('entity_clicked', null);
+                        //setStateValue('entity_clicked', null);
+                        //setTriggerValue('entity_clicked', null);
                         const allGs = container.querySelectorAll('g');
                         console.log(allGs);
                         const entityGroups = [];
@@ -95,6 +97,7 @@ def _mermaid_component():
                                 );
 
                                 setStateValue('entity_clicked', originalName);
+                                setTriggerValue('clicked', originalName);
                             });
                         });
                     }, 500);
@@ -118,6 +121,7 @@ def mermaid(
     theme: str = "neutral",
     selected_entity: str | None = None,
     key: str | None = None,
+    on_click: Callable[..., None] | None = None,
 ):
     """
     Render a Mermaid ERD diagram.
@@ -134,4 +138,5 @@ def mermaid(
     return _mermaid_component()(
         data=data,
         key=key,
+        on_clicked_change=on_click,
     )
