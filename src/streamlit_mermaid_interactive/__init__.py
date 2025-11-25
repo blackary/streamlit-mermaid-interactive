@@ -54,7 +54,9 @@ def _mermaid_component():
 
                         allGs.forEach((g) => {
                             // const hasEntityBox = g.querySelector('rect.er.entityBox');
-                            const hasID = g.id != '' || g.classList.contains('label');
+                            const hasID = g.id != '' || (
+                                g.classList.contains('label') && g.classList.contains('name')
+                            );
                             console.log(hasID);
                             if (hasID) {
                                 entityGroups.push(g);
