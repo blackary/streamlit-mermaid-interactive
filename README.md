@@ -13,6 +13,10 @@ with pip:
 pip install streamlit-mermaid-interactive
 ```
 
+## Demo
+
+https://mermaid-component.streamlit.app/
+
 ## Supported Diagram Types
 
 This component currently supports **4 diagram types** with full interactivity:
