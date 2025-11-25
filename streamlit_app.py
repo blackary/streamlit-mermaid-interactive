@@ -13,6 +13,16 @@ diagram_type = st.segmented_control(
 
 if diagram_type == "Flowchart":
     st.header("Flowchart (Neutral Theme)")
+    selected_item = st.session_state.get("flowchart", {}).get("entity_clicked", None)
+    mapping = {
+        "A": "Start",
+        "B": "Is it?",
+        "C": "OK",
+        "D": "Rethink",
+        "E": "End",
+    }
+    reversed_mapping = {v: k for k, v in mapping.items()}
+
     with st.echo(code_location="below"):
         flowchart_code = """
 graph TD
@@ -22,6 +32,9 @@ graph TD
     D --> B
     B ---->|No| E[End]
 """
+        # Add style to the selected item, if any
+        if selected_item:
+            flowchart_code += f"\nstyle {reversed_mapping[selected_item]} fill:#f9f,stroke:#333,stroke-width:4px"
 
         def on_click():
             item_clicked = st.session_state["flowchart"]["clicked"]
