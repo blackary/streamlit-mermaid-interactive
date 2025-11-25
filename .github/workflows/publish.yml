@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: uv build
       - name: Install dev dependencies
-        run: uv sync --with dev
+        run: uv sync --dev
       # Check that basic features work and we didn't miss to include crucial files
       - name: Smoke test (wheel)
         run: uv run --isolated --no-project --with dist/*.whl pytest tests/test_smoke.py
