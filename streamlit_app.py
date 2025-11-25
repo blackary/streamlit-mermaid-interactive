@@ -22,14 +22,6 @@ graph TD
     D --> B
     B ---->|No| E[End]
 """
-        flowchart_code = """
-classDiagram
-  class Animal
-  class Mineral
-  style Animal fill:#f9f,stroke:#333,stroke-width:4px
-  style Mineral fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-"""
-
         entities = mermaid(flowchart_code, theme="neutral", key="flowchart")
         if clicked := entities.get("entity_clicked"):
             st.info(f"Flowchart - Clicked: {clicked}")
@@ -77,10 +69,6 @@ erDiagram
         float pricePerUnit
     }
 """
-        erd_code = """erDiagram
-    id1||--||id2 : label
-    style id1 fill:#f9f,stroke:#333,stroke-width:4px
-    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5"""
         entities = mermaid(erd_code, key="erd")
         if clicked := entities.get("entity_clicked"):
             st.info(f"ERD - Clicked: {clicked}")
