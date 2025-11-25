@@ -4,8 +4,13 @@ A Streamlit component for rendering interactive Mermaid diagrams with click even
 
 ## Installation
 
+with uv:
 ```bash
-uv install streamlit-mermaid-interactive
+uv add streamlit-mermaid-interactive
+```
+with pip:
+```bash
+pip install streamlit-mermaid-interactive
 ```
 
 ## Supported Diagram Types
