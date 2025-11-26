@@ -11,11 +11,11 @@ def test_component_manifest():
     manifests = scan_component_manifests()
     manifest_dict = {m.name: m for m, _ in manifests}
 
-    assert "streamlit-mermaid-interactive" in manifest_dict, (
+    assert "streamlit_mermaid_interactive" in manifest_dict, (
         "Component manifest not found"
     )
 
-    manifest = manifest_dict["streamlit-mermaid-interactive"]
+    manifest = manifest_dict["streamlit_mermaid_interactive"]
     component_names = [c.name for c in manifest.components]
     assert "mermaid" in component_names, (
         f"mermaid component not found in {component_names}"
