@@ -1,7 +1,7 @@
 [project]
 name = "streamlit_mermaid_interactive"
-# The real package version is in the root pyproject.toml file
-version = "0.1.0"
+# Real version is in the root pyproject.toml file
+version = "0.0.0"
 
 [[tool.streamlit.component.components]]
 name = "mermaid"

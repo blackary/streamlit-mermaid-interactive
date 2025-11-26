@@ -13,7 +13,7 @@ def get_mermaid_component(opacity: float = 0.5):
         css=f"""
         #mermaid-container {{width: 100%;height: 100%;}}
         .mermaid-clickable {{transition: opacity 0.2s ease;}}
-        .mermaid-clickable:hover {{opacity: {opacity} !important;}}
+        .mermaid-clickable:hover {{ opacity: {opacity}; }}";
         """,
         js="main.js",
     )
