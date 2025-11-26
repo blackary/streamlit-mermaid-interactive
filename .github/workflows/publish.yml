@@ -31,4 +31,4 @@ jobs:
       - name: Smoke test (source distribution)
         run: uv run --isolated --no-project --with dist/*.tar.gz tests/test_smoke.py
       - name: Publish
-        run: uv publish
+        run: uv publish --no-build dist/*.whl dist/*.tar.gz
